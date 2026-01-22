@@ -1,5 +1,18 @@
 // bot.js
 const { Telegraf } = require("telegraf");
+const express = require("express");
+
+const app = express();
+const PORT = process.env.PORT || 3000;
+
+// Simple endpoint to keep the bot alive
+app.get("/", (req, res) => {
+  res.send("Cleaner bot is running.");
+});
+
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
+});
 
 const bot = new Telegraf("8410558933:AAFf3PneAEK2-eZRExgJmzIte65tPip7euk");
 
